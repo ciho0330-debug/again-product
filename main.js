@@ -21,26 +21,37 @@ const enemy = {
     speed: 3
 };
 
+// Keyboard input state
+const keys = {
+    ArrowUp: false,
+    ArrowDown: false,
+    ArrowLeft: false,
+    ArrowRight: false
+};
+
+document.addEventListener('keydown', (e) => {
+    if (e.key in keys) {
+        keys[e.key] = true;
+    }
+});
+
+document.addEventListener('keyup', (e) => {
+    if (e.key in keys) {
+        keys[e.key] = false;
+    }
+});
+
 function drawRect(x, y, width, height, color) {
     ctx.fillStyle = color;
     ctx.fillRect(x, y, width, height);
 }
 
 function update() {
-    // Clear canvas
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Draw player and enemy
-    drawRect(player.x, player.y, player.width, player.height, player.color);
-    drawRect(enemy.x, enemy.y, enemy.width, enemy.height, enemy.color);
-
     // Player movement
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowUp') player.y -= player.speed;
-        if (e.key === 'ArrowDown') player.y += player.speed;
-        if (e.key === 'ArrowLeft') player.x -= player.speed;
-        if (e.key === 'ArrowRight') player.x += player.speed;
-    });
+    if (keys.ArrowUp) player.y -= player.speed;
+    if (keys.ArrowDown) player.y += player.speed;
+    if (keys.ArrowLeft) player.x -= player.speed;
+    if (keys.ArrowRight) player.x += player.speed;
 
     // Enemy movement (chase player)
     if (enemy.x < player.x) enemy.x += enemy.speed;
@@ -57,7 +68,15 @@ function update() {
     ) {
         alert('Game Over!');
         document.location.reload();
+        return; // Stop the game loop
     }
+
+    // Clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Draw player and enemy
+    drawRect(player.x, player.y, player.width, player.height, player.color);
+    drawRect(enemy.x, enemy.y, enemy.width, enemy.height, enemy.color);
 
     requestAnimationFrame(update);
 }

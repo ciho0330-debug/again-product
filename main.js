@@ -2,17 +2,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const generateButton = document.getElementById('generate-button');
     const lottoNumbersContainer = document.getElementById('lotto-numbers');
 
-    // Function to get a color based on the number
+    // 숫자에 따라 색상을 가져오는 함수
     const getColorForNumber = (number) => {
-        if (number <= 10) return '#fbc400'; // Yellow
-        if (number <= 20) return '#69c8f2'; // Blue
-        if (number <= 30) return '#ff7272'; // Red
-        if (number <= 40) return '#aaa';    // Gray
-        return '#b0d840';                     // Green
+        if (number <= 10) return '#fbc400'; // 노란색
+        if (number <= 20) return '#69c8f2'; // 파란색
+        if (number <= 30) return '#ff7272'; // 빨간색
+        if (number <= 40) return '#aaa';    // 회색
+        return '#b0d840';                     // 초록색
     };
 
     generateButton.addEventListener('click', () => {
-        lottoNumbersContainer.innerHTML = ''; // Clear previous numbers
+        lottoNumbersContainer.innerHTML = ''; // 이전 번호 지우기
         const numbers = new Set();
         while(numbers.size < 6) {
             const randomNumber = Math.floor(Math.random() * 45) + 1;

@@ -95,3 +95,54 @@ h1 {
     top: 20px;
     right: 20px;
 }
+
+#contact-section {
+    margin-top: 60px;
+    width: 100%;
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+#contact-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+#contact-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+#contact-section label {
+    margin-bottom: 5px;
+    color: white;
+}
+
+#contact-section input,
+#contact-section textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-family: sans-serif;
+}
+
+#contact-section button {
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    background-color: #ff9a9e;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contact-section button:hover {
+    background-color: #ff7272;
+}

@@ -20,6 +20,85 @@ header h1 {
     font-size: 2.5rem;
 }
 
+/* Region Navigation */
+#region-nav {
+    background: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+#region-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+}
+
+#region-nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+    position: relative;
+}
+
+#region-nav a {
+    color: #555;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#region-nav a:hover, #region-nav a.active {
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 1;
+    list-style: none;
+    padding: 10px 0;
+    border-radius: 5px;
+    min-width: 160px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    display: block;
+    margin: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    width: auto;
+    text-align: left;
+}
+
+/* Region Image */
+#region-image-container {
+    text-align: center;
+    padding: 20px 0;
+    background: #fff;
+    margin-bottom: 20px;
+}
+
+#region-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+    border-radius: 10px;
+}
+
 main {
     padding: 20px;
     display: grid;
@@ -39,6 +118,11 @@ main {
     padding-bottom: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.2s;
+    display: block; /* Initially show all */
+}
+
+.office-card.hidden {
+    display: none;
 }
 
 .office-card:hover {
@@ -51,9 +135,9 @@ main {
 }
 
 .office-card img {
-    width: 500px; /* Fixed size */
-    height: 500px; /* Fixed size */
-    object-fit: cover; /* Ensures the image covers the area without distortion */
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
 }
 
 .office-card p {
@@ -77,7 +161,7 @@ main {
 }
 
 .contact-icons img {
-    width: 32px;  /* Small icon size */
+    width: 32px;
     height: 32px;
     border-radius: 5px;
 }

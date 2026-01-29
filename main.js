@@ -1,84 +1,18 @@
-const canvas = document.getElementById('game-canvas');
-const ctx = canvas.getContext('2d');
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-// Player (Cat)
-const player = {
-    x: 100,
-    y: 100,
-    width: 50,
-    height: 50,
-    color: 'blue',
-    speed: 5
-};
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
 
-// Enemy (Dog)
-const enemy = {
-    x: 500,
-    y: 300,
-    width: 50,
-    height: 50,
-    color: 'red',
-    speed: 3
-};
+    // In a real application, you would send this data to a server.
+    // For this example, we'll just log it to the console and show an alert.
+    console.log('Name:', name);
+    console.log('Email:', email);
+    console.log('Message:', message);
 
-// Keyboard input state
-const keys = {
-    ArrowUp: false,
-    ArrowDown: false,
-    ArrowLeft: false,
-    ArrowRight: false
-};
+    alert('문의해주셔서 감사합니다. 빠른 시일 내에 연락드리겠습니다.');
 
-document.addEventListener('keydown', (e) => {
-    if (e.key in keys) {
-        keys[e.key] = true;
-    }
+    // Clear the form
+    document.getElementById('contact-form').reset();
 });
-
-document.addEventListener('keyup', (e) => {
-    if (e.key in keys) {
-        keys[e.key] = false;
-    }
-});
-
-function drawRect(x, y, width, height, color) {
-    ctx.fillStyle = color;
-    ctx.fillRect(x, y, width, height);
-}
-
-function update() {
-    // Player movement
-    if (keys.ArrowUp) player.y -= player.speed;
-    if (keys.ArrowDown) player.y += player.speed;
-    if (keys.ArrowLeft) player.x -= player.speed;
-    if (keys.ArrowRight) player.x += player.speed;
-
-    // Enemy movement (chase player)
-    if (enemy.x < player.x) enemy.x += enemy.speed;
-    if (enemy.x > player.x) enemy.x -= enemy.speed;
-    if (enemy.y < player.y) enemy.y += enemy.speed;
-    if (enemy.y > player.y) enemy.y -= enemy.speed;
-
-    // Collision detection
-    if (
-        player.x < enemy.x + enemy.width &&
-        player.x + player.width > enemy.x &&
-        player.y < enemy.y + enemy.height &&
-        player.y + player.height > enemy.y
-    ) {
-        alert('Game Over!');
-        document.location.reload();
-        return; // Stop the game loop
-    }
-
-    // Clear canvas
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Draw player and enemy
-    drawRect(player.x, player.y, player.width, player.height, player.color);
-    drawRect(enemy.x, enemy.y, enemy.width, enemy.height, enemy.color);
-
-    requestAnimationFrame(update);
-}
-
-update();

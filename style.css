@@ -1,14 +1,76 @@
+/* Basic Styles */
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: #f0f0f0;
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
     margin: 0;
 }
 
-canvas {
-    background-color: white;
-    border: 1px solid black;
+nav ul {
+    padding: 0;
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    background: #fff;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+}
+
+/* Form Styles */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#contact-form input,
+#contact-form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#contact-form button {
+    background: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }

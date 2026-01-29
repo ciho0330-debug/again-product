@@ -5,169 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>모두의공유오피스</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- KaKao Map API -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_APP_KEY&libraries=services"></script>
 </head>
 <body>
-    <header>
-        <h1>모두의공유오피스</h1>
-        <p>전국의 모든 공유오피스를 한눈에!</p>
-    </header>
+    <div id="app-container">
+        <header>
+            <h1>모두의공유오피스</h1>
+            <p>지도를 움직여 전국의 공유오피스를 찾아보세요!</p>
+        </header>
 
-    <nav id="region-nav">
-        <ul>
-            <li><a href="#" class="region-filter" data-region="all">전체</a></li>
-            <!-- 주요 광역시 -->
-            <li class="dropdown">
-                <a href="#" class="region-filter" data-region="서울특별시">서울특별시</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#" class="sub-region-filter" data-region="서울특별시" data-sub-region="강남구">강남구</a></li>
-                    <li><a href="#" class="sub-region-filter" data-region="서울특별시" data-sub-region="영등포구">영등포구</a></li>
-                    <li><a href="#" class="sub-region-filter" data-region="서울특별시" data-sub-region="중구">중구</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="region-filter" data-region="부산광역시">부산광역시</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#" class="sub-region-filter" data-region="부산광역시" data-sub-region="해운대구">해운대구</a></li>
-                    <li><a href="#" class="sub-region-filter" data-region="부산광역시" data-sub-region="진구">진구</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="region-filter" data-region="대구광역시">대구광역시</a>
-                <ul class="dropdown-menu">
-                     <li><a href="#" class="sub-region-filter" data-region="대구광역시" data-sub-region="중구">중구</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="region-filter" data-region="인천광역시">인천광역시</a>
-                 <ul class="dropdown-menu">
-                     <li><a href="#" class="sub-region-filter" data-region="인천광역시" data-sub-region="연수구">연수구</a></li>
-                </ul>
-            </li>
-             <li class="dropdown">
-                <a href="#" class="region-filter" data-region="광주광역시">광주광역시</a>
-            </li>
-             <li class="dropdown">
-                <a href="#" class="region-filter" data-region="대전광역시">대전광역시</a>
-            </li>
-             <li class="dropdown">
-                <a href="#" class="region-filter" data-region="울산광역시">울산광역시</a>
-            </li>
-             <li class="dropdown">
-                <a href="#" class="region-filter" data-region="세종특별자치시">세종특별자치시</a>
-            </li>
-            <!-- 도 -->
-            <li class="dropdown">
-                <a href="#" class="region-filter" data-region="경기도">경기도</a>
-                 <ul class="dropdown-menu">
-                     <li><a href="#" class="sub-region-filter" data-region="경기도" data-sub-region="수원시">수원시</a></li>
-                     <li><a href="#" class="sub-region-filter" data-region="경기도" data-sub-region="성남시">성남시</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="region-filter" data-region="강원특별자치도">강원특별자치도</a>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="region-filter" data-region="충청북도">충청북도</a>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="region-filter" data-region="충청남도">충청남도</a>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="region-filter" data-region="전북특별자치도">전북특별자치도</a>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="region-filter" data-region="전라남도">전라남도</a>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="region-filter" data-region="경상북도">경상북도</a>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="region-filter" data-region="경상남도">경상남도</a>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="region-filter" data-region="제주특별자치도">제주특별자치도</a>
-            </li>
-        </ul>
-    </nav>
-
-    <div id="region-image-container" style="display: none;">
-        <img id="region-image" src="" alt="지역 대표 이미지">
+        <div id="content-wrapper">
+            <div id="map-wrapper">
+                <div id="map"></div>
+            </div>
+            <main id="office-list-wrapper">
+                <div id="office-list"></div>
+            </main>
+        </div>
     </div>
-
-    <main id="office-list">
-        <!-- Seoul -->
-        <div class="office-card" data-region="서울특별시" data-sub-region="강남구">
-            <h2>어게인공유오피스</h2>
-            <img src="https://via.placeholder.com/500/FFC107/808080?text=Again+Office" alt="어게인공유오피스">
-            <div class="contact-icons">
-                <a href="http://pf.kakao.com/_BEZxcb" target="_blank"><img src="https://www.kakaocorp.com/page/favicon.ico" alt="카카오톡 문의"></a>
-                <a href="https://talk.naver.com/profile/wc14ml" target="_blank"><img src="https://talk.naver.com/favicon.ico" alt="네이버톡 문의"></a>
-            </div>
-            <p>당신의 새로운 시작을 응원합니다.</p>
-        </div>
-        <div class="office-card" data-region="서울특별시" data-sub-region="강남구">
-            <h2>패스트파이브</h2>
-            <img src="https://via.placeholder.com/500/2196F3/FFFFFF?text=Fast+Five" alt="패스트파이브 강남점">
-            <div class="contact-icons">
-                <a href="#" class="kakao-link" data-office="패스트파이브"><img src="https://www.kakaocorp.com/page/favicon.ico" alt="카카오톡 문의"></a>
-                <a href="#" class="naver-talk-link" data-office="패스트파이브"><img src="https://talk.naver.com/favicon.ico" alt="네이버톡 문의"></a>
-            </div>
-            <p>강남의 중심에서 비즈니스를 시작하세요.</p>
-        </div>
-        <div class="office-card" data-region="서울특별시" data-sub-region="영등포구">
-            <h2>위워크</h2>
-            <img src="https://via.placeholder.com/500/4CAF50/FFFFFF?text=WeWork" alt="위워크 여의도점">
-            <div class="contact-icons">
-                 <a href="#" class="kakao-link" data-office="위워크"><img src="https://www.kakaocorp.com/page/favicon.ico" alt="카카오톡 문의"></a>
-                <a href="#" class="naver-talk-link" data-office="위워크"><img src="https://talk.naver.com/favicon.ico" alt="네이버톡 문의"></a>
-            </div>
-            <p>글로벌 네트워크와 함께 성장하세요.</p>
-        </div>
-        <div class="office-card" data-region="서울특별시" data-sub-region="중구">
-            <h2>스파크플러스</h2>
-            <img src="https://via.placeholder.com/500/E91E63/FFFFFF?text=Spark+Plus" alt="스파크플러스 시청점">
-            <div class="contact-icons">
-                <a href="#" class="kakao-link" data-office="스파크플러스"><img src="https://www.kakaocorp.com/page/favicon.ico" alt="카카오톡 문의"></a>
-                <a href="#" class="naver-talk-link" data-office="스파크플러스"><img src="https://talk.naver.com/favicon.ico" alt="네이버톡 문의"></a>
-            </div>
-            <p>집중과 휴식이 공존하는 최적의 업무 환경.</p>
-        </div>
-
-        <!-- Busan -->
-         <div class="office-card" data-region="부산광역시" data-sub-region="해운대구">
-            <h2>라인업</h2>
-            <img src="https://via.placeholder.com/500/9C27B0/FFFFFF?text=Line+Up" alt="라인업 센텀점">
-            <div class="contact-icons">
-                <a href="#" class="kakao-link" data-office="라인업"><img src="https://www.kakaocorp.com/page/favicon.ico" alt="카카오톡 문의"></a>
-                <a href="#" class="naver-talk-link" data-office="라인업"><img src="https://talk.naver.com/favicon.ico" alt="네이버톡 문의"></a>
-            </div>
-            <p>부산의 실리콘밸리, 센텀시티에서 성공을 향한 라인업!</p>
-        </div>
-
-        <!-- Gyeonggi-do -->
-        <div class="office-card" data-region="경기도" data-sub-region="성남시">
-            <h2>무인공유오피스</h2>
-            <img src="https://via.placeholder.com/500/009688/FFFFFF?text=24/7+Office" alt="무인공유오피스 판교점">
-            <div class="contact-icons">
-                <a href="#" class="kakao-link" data-office="무인공유오피스"><img src="https://www.kakaocorp.com/page/favicon.ico" alt="카카오톡 문의"></a>
-                <a href="#" class="naver-talk-link" data-office="무인공유오피스"><img src="https://talk.naver.com/favicon.ico" alt="네이버톡 문의"></a>
-            </div>
-            <p>언제나 자유롭게, 24시간 당신의 워크스페이스.</p>
-        </div>
-
-         <!-- Incheon -->
-        <div class="office-card" data-region="인천광역시" data-sub-region="연수구">
-            <h2>소호비즈</h2>
-            <img src="https://via.placeholder.com/500/FF5722/FFFFFF?text=SOHO+Biz" alt="소호비즈 송도점">
-            <div class="contact-icons">
-                <a href="#" class="kakao-link" data-office="소호비즈"><img src="https://www.kakaocorp.com/page/favicon.ico" alt="카카오톡 문의"></a>
-                <a href="#" class="naver-talk-link" data-office="소호비즈"><img src="https://talk.naver.com/favicon.ico" alt="네이버톡 문의"></a>
-            </div>
-            <p>성공적인 비즈니스를 위한 스마트한 선택.</p>
-        </div>
-
-    </main>
 
     <footer>
         <p>&copy; 2024 모두의공유오피스. All rights reserved.</p>

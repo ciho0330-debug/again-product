@@ -1,79 +1,125 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const regionNav = document.getElementById('region-nav');
-    const officeList = document.getElementById('office-list');
-    const officeCards = officeList.querySelectorAll('.office-card');
-    const regionImageContainer = document.getElementById('region-image-container');
-    const regionImage = document.getElementById('region-image');
-    const navLinks = regionNav.querySelectorAll('a');
-
-    // Region images map
-    const regionImages = {
-        '서울특별시': 'https://images.unsplash.com/photo-1518544923197-90c2688654a1?q=80&w=2070&auto=format&fit=crop',
-        '부산광역시': 'https://images.unsplash.com/photo-1558997519-83a02c315b88?q=80&w=1932&auto=format&fit=crop',
-        '대구광역시': 'https://images.unsplash.com/photo-1571223434453-6a031102f5e3?q=80&w=1974&auto=format&fit=crop',
-        '인천광역시': 'https://images.unsplash.com/photo-1590372091427-13398c520863?q=80&w=2070&auto=format&fit=crop',
-        '광주광역시': 'https://images.unsplash.com/photo-1629812456720-2a9699632128?q=80&w=2071&auto=format&fit=crop',
-        '대전광역시': 'https://images.unsplash.com/photo-1629812456720-2a9699632128?q=80&w=2071&auto=format&fit=crop',
-        '울산광역시': 'https://images.unsplash.com/photo-1593405435965-92435f11812e?q=80&w=1974&auto=format&fit=crop',
-        '세종특별자치시': 'https://images.unsplash.com/photo-1631245389656-68254b1a808f?q=80&w=2070&auto=format&fit=crop',
-        '경기도': 'https://images.unsplash.com/photo-1560167385-d8585e4c0276?q=80&w=2070&auto=format&fit=crop',
-        '강원특별자치도': 'https://images.unsplash.com/photo-1544376722-54d9a1a6b47c?q=80&w=2070&auto=format&fit=crop',
-        '충청북도': 'https://images.unsplash.com/photo-1553412086-6354c3a59e35?q=80&w=1974&auto=format&fit=crop',
-        '충청남도': 'https://images.unsplash.com/photo-1601639097274-9a4f6b8d2c34?q=80&w=2070&auto=format&fit=crop',
-        '전북특별자치도': 'https://images.unsplash.com/photo-1579459586111-c11e3c83b8b6?q=80&w=2070&auto=format&fit=crop',
-        '전라남도': 'https://images.unsplash.com/photo-1571738222-094030d970c6?q=80&w=2070&auto=format&fit=crop',
-        '경상북도': 'https://images.unsplash.com/photo-1582234407425-4c0a520337c8?q=80&w=2070&auto=format&fit=crop',
-        '경상남도': 'https://images.unsplash.com/photo-1579294943964-c27d531d5e5c?q=80&w=2070&auto=format&fit=crop',
-        '제주특별자치도': 'https://images.unsplash.com/photo-1551892529-e4d509f692a8?q=80&w=2070&auto=format&fit=crop',
-    };
-
-    regionNav.addEventListener('click', (e) => {
-        const target = e.target;
-        if (target.tagName !== 'A') return;
-        e.preventDefault();
-
-        navLinks.forEach(link => link.classList.remove('active'));
-        target.classList.add('active');
-
-        const region = target.dataset.region;
-        const subRegion = target.dataset.subRegion;
-
-        if (region && region !== 'all' && regionImages[region]) {
-            regionImage.src = regionImages[region];
-            regionImageContainer.style.display = 'block';
-        } else {
-            regionImageContainer.style.display = 'none';
+    // --- 1. Data: Office Information ---
+    // NOTE: In a real application, this data would likely come from a server/database.
+    const officeData = [
+        {
+            name: '어게인공유오피스',
+            address: '서울 강남구 테헤란로 1',
+            lat: 37.506502, 
+            lng: 127.053555,
+            img: 'https://via.placeholder.com/500/FFC107/808080?text=Again+Office',
+            desc: '당신의 새로운 시작을 응원합니다.',
+            kakao: 'http://pf.kakao.com/_BEZxcb',
+            naver: 'https://talk.naver.com/profile/wc14ml'
+        },
+        {
+            name: '패스트파이브',
+            address: '서울 강남구 테헤란로 2',
+            lat: 37.508502, 
+            lng: 127.055555,
+            img: 'https://via.placeholder.com/500/2196F3/FFFFFF?text=Fast+Five',
+            desc: '강남의 중심에서 비즈니스를 시작하세요.',
+            kakao: '#',
+            naver: '#'
+        },
+        {
+            name: '위워크 여의도',
+            address: '서울 영등포구 국제금융로 10',
+            lat: 37.5250, 
+            lng: 126.9250,
+            img: 'https://via.placeholder.com/500/4CAF50/FFFFFF?text=WeWork',
+            desc: '글로벌 네트워크와 함께 성장하세요.',
+            kakao: '#',
+            naver: '#'
+        },
+        {
+            name: '라인업 센텀',
+            address: '부산 해운대구 센텀2로 25',
+            lat: 35.1706, 
+            lng: 129.1307,
+            img: 'https://via.placeholder.com/500/9C27B0/FFFFFF?text=Line+Up',
+            desc: '부산의 실리콘밸리, 센텀시티에서 성공을!',
+            kakao: '#',
+            naver: '#'
+        },
+         {
+            name: '무인공유오피스 판교',
+            address: '경기 성남시 분당구 판교역로 235',
+            lat: 37.4004, 
+            lng: 127.1119,
+            img: 'https://via.placeholder.com/500/009688/FFFFFF?text=24/7+Office',
+            desc: '언제나 자유롭게, 24시간 당신의 워크스페이스.',
+            kakao: '#',
+            naver: '#'
         }
+    ];
 
-        officeCards.forEach(card => {
-            const cardRegion = card.dataset.region;
-            const cardSubRegion = card.dataset.subRegion;
-            let show = false;
+    // --- 2. Initialize Map ---
+    const mapContainer = document.getElementById('map');
+    const mapOption = {
+        center: new kakao.maps.LatLng(37.506502, 127.053555), // Initial center: Seoul
+        level: 5 // Initial zoom level
+    };
+    const map = new kakao.maps.Map(mapContainer, mapOption);
+    const officeList = document.getElementById('office-list');
+    let markers = [];
 
-            if (region === 'all') {
-                show = true;
-            } else if (subRegion) {
-                if (cardRegion === region && cardSubRegion === subRegion) {
-                    show = true;
-                }
-            } else if (region) {
-                if (cardRegion === region) {
-                    show = true;
-                }
-            }
-
-            card.classList.toggle('hidden', !show);
+    // --- 3. Create Markers, InfoWindows, and List Items ---
+    officeData.forEach((office, index) => {
+        // Create Marker
+        const position = new kakao.maps.LatLng(office.lat, office.lng);
+        const marker = new kakao.maps.Marker({ 
+            map: map,
+            position: position,
+            title: office.name
         });
-    });
 
-    officeList.addEventListener('click', (e) => {
-        const target = e.target.closest('a');
-        if (!target || !target.classList.contains('kakao-link') && !target.classList.contains('naver-talk-link')) return;
+        // Create InfoWindow
+        const infowindow = new kakao.maps.InfoWindow({
+            content: `<div style="padding:5px;font-size:12px;">${office.name}</div>`
+        });
 
-        const officeName = target.dataset.office;
-        if (!officeName) return;
+        // Store marker and infowindow
+        markers.push({marker, infowindow});
+
+        // Add mouseover/mouseout events for InfoWindow
+        kakao.maps.event.addListener(marker, 'mouseover', () => infowindow.open(map, marker));
+        kakao.maps.event.addListener(marker, 'mouseout', () => infowindow.close());
+
+        // Create List Item
+        const card = document.createElement('div');
+        card.className = 'office-card';
+        card.dataset.index = index;
+        card.innerHTML = `
+            <img src="${office.img}" alt="${office.name}">
+            <div class="office-card-content">
+                <h2>${office.name}</h2>
+                <p>${office.desc}</p>
+                <div class="contact-icons">
+                    <a href="${office.kakao}" target="_blank"><img src="https://www.kakaocorp.com/page/favicon.ico" alt="카카오톡 문의"></a>
+                    <a href="${office.naver}" target="_blank"><img src="https://talk.naver.com/favicon.ico" alt="네이버톡 문의"></a>
+                </div>
+            </div>
+        `;
+        officeList.appendChild(card);
+
+        // --- 4. Interactivity ---
+        card.addEventListener('mouseenter', () => {
+            infowindow.open(map, marker);
+        });
+
+        card.addEventListener('mouseleave', () => {
+            infowindow.close();
+        });
         
-        e.preventDefault();
-        alert(`'${officeName}'의 ${target.classList.contains('kakao-link') ? '카카오톡' : '네이버톡'}으로 문의합니다.`);
+        card.addEventListener('click', () => {
+            map.panTo(position);
+        });
+
+        kakao.maps.event.addListener(marker, 'click', () => {
+            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            officeList.querySelectorAll('.office-card').forEach(c => c.style.borderColor = '#ddd');
+            card.style.borderColor = '#007bff';
+        });
     });
 });

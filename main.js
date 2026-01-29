@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- 1. Data: Office Information ---
-    // NOTE: In a real application, this data would likely come from a server/database.
     const officeData = [
         {
             name: '어게인공유오피스',
@@ -65,13 +64,19 @@ document.addEventListener('DOMContentLoaded', () => {
     let markers = [];
 
     // --- 3. Create Markers, InfoWindows, and List Items ---
+    const imageSrc = 'https://img.icons8.com/office/80/building.png'; // Custom marker image URL
+    const imageSize = new kakao.maps.Size(40, 40); // Marker image size
+    const imageOption = {offset: new kakao.maps.Point(20, 40)}; // Marker image options (anchor point)
+    const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+
     officeData.forEach((office, index) => {
-        // Create Marker
+        // Create Marker with custom image
         const position = new kakao.maps.LatLng(office.lat, office.lng);
         const marker = new kakao.maps.Marker({ 
             map: map,
             position: position,
-            title: office.name
+            title: office.name,
+            image: markerImage // Set custom marker image
         });
 
         // Create InfoWindow

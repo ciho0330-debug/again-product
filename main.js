@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
             address: '서울 강남구 테헤란로 1',
             lat: 37.506502, 
             lng: 127.053555,
-            img: 'https://via.placeholder.com/500/FFC107/808080?text=Again+Office',
+            img: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2070&auto=format&fit=crop',
             desc: '당신의 새로운 시작을 응원합니다.',
             kakao: 'http://pf.kakao.com/_BEZxcb',
             naver: 'https://talk.naver.com/profile/wc14ml'
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             address: '서울 강남구 테헤란로 2',
             lat: 37.508502, 
             lng: 127.055555,
-            img: 'https://via.placeholder.com/500/2196F3/FFFFFF?text=Fast+Five',
+            img: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974&auto=format&fit=crop',
             desc: '강남의 중심에서 비즈니스를 시작하세요.',
             kakao: '#',
             naver: '#'
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             address: '서울 영등포구 국제금융로 10',
             lat: 37.5250, 
             lng: 126.9250,
-            img: 'https://via.placeholder.com/500/4CAF50/FFFFFF?text=WeWork',
+            img: 'https://images.unsplash.com/photo-1600880292210-f762c286536b?q=80&w=1974&auto=format&fit=crop',
             desc: '글로벌 네트워크와 함께 성장하세요.',
             kakao: '#',
             naver: '#'
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             address: '부산 해운대구 센텀2로 25',
             lat: 35.1706, 
             lng: 129.1307,
-            img: 'https://via.placeholder.com/500/9C27B0/FFFFFF?text=Line+Up',
+            img: 'https://images.unsplash.com/photo-1573496774439-c9a9399435c2?q=80&w=1974&auto=format&fit=crop',
             desc: '부산의 실리콘밸리, 센텀시티에서 성공을!',
             kakao: '#',
             naver: '#'
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             address: '경기 성남시 분당구 판교역로 235',
             lat: 37.4004, 
             lng: 127.1119,
-            img: 'https://via.placeholder.com/500/009688/FFFFFF?text=24/7+Office',
+            img: 'https://images.unsplash.com/photo-1583397333582-62a04a5a5c68?q=80&w=1935&auto=format&fit=crop',
             desc: '언제나 자유롭게, 24시간 당신의 워크스페이스.',
             kakao: '#',
             naver: '#'

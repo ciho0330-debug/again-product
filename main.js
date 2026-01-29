@@ -1,18 +1,20 @@
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+    const officeList = document.getElementById('office-list');
 
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+    officeList.addEventListener('click', (e) => {
+        const target = e.target.closest('a');
+        if (!target) return;
 
-    // In a real application, you would send this data to a server.
-    // For this example, we'll just log it to the console and show an alert.
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('Message:', message);
+        const officeName = target.dataset.office;
 
-    alert('문의해주셔서 감사합니다. 빠른 시일 내에 연락드리겠습니다.');
-
-    // Clear the form
-    document.getElementById('contact-form').reset();
+        if (target.classList.contains('kakao-link')) {
+            e.preventDefault();
+            // In a real application, you would replace this with the actual Kakao Talk Channel URL
+            alert(`'${officeName}'의 카카오톡으로 문의합니다.`);
+        } else if (target.classList.contains('naver-talk-link')) {
+            e.preventDefault();
+            // In a real application, you would replace this with the actual Naver Talk URL
+            alert(`'${officeName}'의 네이버톡으로 문의합니다.`);
+        }
+    });
 });

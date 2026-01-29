@@ -3,51 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>어게인공유오피스</title>
+    <title>공유오피스 포털</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <h1>어게인공유오피스</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">소개</a></li>
-                <li><a href="#services">서비스</a></li>
-                <li><a href="#contact">문의하기</a></li>
-            </ul>
-        </nav>
+        <h1>공유오피스 포털</h1>
+        <p>전국의 모든 공유오피스를 한눈에!</p>
     </header>
 
-    <main>
-        <section id="about">
-            <h2>새로운 시작을 위한 최적의 공간</h2>
-            <p>어게인공유오피스는 당신의 성공적인 비즈니스를 위해 최고의 환경을 제공합니다. <br>다양한 규모의 사무 공간과 편의 시설을 합리적인 가격으로 만나보세요.</p>
-        </section>
+    <main id="office-list">
+        <!-- Office 1 -->
+        <div class="office-card">
+            <h2>패스트파이브</h2>
+            <img src="https://via.placeholder.com/500" alt="패스트파이브 강남점">
+            <div class="contact-icons">
+                <a href="#" class="kakao-link" data-office="패스트파이브"><img src="https://www.kakaocorp.com/page/favicon.ico" alt="카카오톡 문의"></a>
+                <a href="#" class="naver-talk-link" data-office="패스트파이브"><img src="https://talk.naver.com/favicon.ico" alt="네이버톡 문의"></a>
+            </div>
+            <p>강남의 중심에서 비즈니스를 시작하세요.</p>
+        </div>
 
-        <section id="services">
-            <h2>제공 서비스</h2>
-            <ul>
-                <li>24시간 이용 가능한 독립 사무 공간</li>
-                <li>초고속 유무선 인터넷</li>
-                <li>최신 장비를 갖춘 회의실</li>
-                <li>휴식을 위한 카페테리아</li>
-                <li>보안 및 출입 통제 시스템</li>
-            </ul>
-        </section>
+        <!-- Office 2 -->
+        <div class="office-card">
+            <h2>위워크</h2>
+            <img src="https://via.placeholder.com/500" alt="위워크 여의도점">
+            <div class="contact-icons">
+                <a href="#" class="kakao-link" data-office="위워크"><img src="https://www.kakaocorp.com/page/favicon.ico" alt="카카오톡 문의"></a>
+                <a href="#" class="naver-talk-link" data-office="위워크"><img src="https://talk.naver.com/favicon.ico" alt="네이버톡 문의"></a>
+            </div>
+            <p>글로벌 네트워크와 함께 성장하세요.</p>
+        </div>
 
-        <section id="contact">
-            <h2>문의하기</h2>
-            <form id="contact-form">
-                <input type="text" id="name" placeholder="이름" required>
-                <input type="email" id="email" placeholder="이메일" required>
-                <textarea id="message" placeholder="문의 내용" required></textarea>
-                <button type="submit">전송</button>
-            </form>
-        </section>
+        <!-- Office 3 -->
+        <div class="office-card">
+            <h2>스파크플러스</h2>
+            <img src="https://via.placeholder.com/500" alt="스파크플러스 시청점">
+            <div class="contact-icons">
+                <a href="#" class="kakao-link" data-office="스파크플러스"><img src="https://www.kakaocorp.com/page/favicon.ico" alt="카카오톡 문의"></a>
+                <a href="#" class="naver-talk-link" data-office="스파크플러스"><img src="https://talk.naver.com/favicon.ico" alt="네이버톡 문의"></a>
+            </div>
+            <p>집중과 휴식이 공존하는 최적의 업무 환경.</p>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 어게인공유오피스. All rights reserved.</p>
+        <p>&copy; 2024 공유오피스 포털. All rights reserved.</p>
     </footer>
 
     <script src="main.js"></script>

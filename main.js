@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const generateButton = document.getElementById('generate-button');
     const lottoNumbersContainer = document.getElementById('lotto-numbers');
+    const themeToggleButton = document.getElementById('theme-toggle');
 
     // 숫자에 따라 색상을 가져오는 함수
     const getColorForNumber = (number) => {
@@ -31,5 +32,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 lottoNumbersContainer.appendChild(ball);
             }, index * 100);
         });
+    });
+
+    themeToggleButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
     });
 });

@@ -5,30 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>모두의공유오피스</title>
     <link rel="stylesheet" href="style.css">
-    <!-- KaKao Maps API Script -->
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3b3870cb6eba68f034afe98287f9ea9b&libraries=services"></script>
 </head>
 <body>
     <div id="app-container">
         <header>
-            <h1>모두의공유오피스</h1>
-            <p>지도를 움직여 전국의 공유오피스를 찾아보세요!</p>
+            <div class="header-top">
+                <h1><a href="/">모두의공유오피스</a></h1>
+                <nav>
+                    <a href="#">호스트센터</a>
+                    <a href="#">로그인</a>
+                    <a href="#">회원가입</a>
+                </nav>
+            </div>
+            <div class="search-container">
+                <h2>어떤 공간을 찾고 있나요?</h2>
+                <div class="search-bar">
+                    <input type="search" placeholder="지역, 역, 공간 유형을 검색해보세요.">
+                    <button>검색</button>
+                </div>
+            </div>
         </header>
 
-        <div id="content-wrapper">
-            <div id="map-wrapper">
-                <div id="map"></div>
-            </div>
-            <main id="office-list-wrapper">
-                <div id="office-list"></div>
-            </main>
-        </div>
+        <main>
+            <section class="office-section">
+                <h3>추천 공유오피스</h3>
+                <div id="office-grid"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 모두의공유오피스. All rights reserved.</p>
+        </footer>
     </div>
-
-    <footer>
-        <p>&copy; 2024 모두의공유오피스. All rights reserved.</p>
-    </footer>
-
     <script src="main.js"></script>
 </body>
 </html>
